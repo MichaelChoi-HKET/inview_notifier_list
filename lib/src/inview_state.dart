@@ -55,6 +55,12 @@ class InViewState extends ChangeNotifier {
     // Iterate through each item to check
     // whether it is in the viewport
     _contexts.forEach((WidgetData item) {
+      //
+      try {
+        item.context?.size;
+      } catch (e) {
+        return;
+      }
       // Retrieve the RenderObject, linked to a specific item
       final RenderObject? renderObject = item.context!.findRenderObject();
 
